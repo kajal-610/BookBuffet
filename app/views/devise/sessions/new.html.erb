@@ -1,0 +1,46 @@
+<section class="vh-100" style="background-color: lightgray;">
+ <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <h3 class="mb-5">Log in</h3>
+
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :email, class: "form-label" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :password,  class: "form-label" %><br />
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg" %>
+            </div>
+            </div>
+            <div class="form-check d-flex justify-content-start mb-4">
+              <% if devise_mapping.rememberable? %>
+                <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+            </div>
+            <% end %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Log in",class: "btn btn-secondary btn-lg btn-block"  %>
+            <%= render "devise/shared/links" %>  
+          </div>
+        <hr class="my-4">
+
+
+      </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <% end %>
+
+</section>

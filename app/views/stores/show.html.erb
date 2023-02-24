@@ -1,0 +1,39 @@
+<div class="flex-container", style="display:flex; padding:15%">
+<div>
+<%# <div style="text-align:center"> %>
+<p>
+  <strong>Name:</strong>
+  <%= @store.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @store.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @store.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @store.price %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @store.author %>
+</p>
+<%= link_to 'Edit', edit_store_path(@store),class:"btn btn-secondary", style:"color: white; text-align:center;" %> |
+<%= link_to 'Back', stores_path,class:"btn btn-secondary", style:"color: white; text-align:center;"%>
+</div>
+<div>
+<% @store.files.each do |file| %>
+  <%= image_tag file, width:"250px" %><br>
+<% end %>
+</div>
+
+</div>
+
+

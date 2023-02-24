@@ -1,0 +1,77 @@
+<section  style="background-color: lightgray;">
+<%= form_with(model: store) do |f| %>
+  <% if store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+        <% store.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <h3 class="mb-5">New Store</h3>
+
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :name, class: "form-label" %><br />
+                <%= f.text_field :name, autofocus: true, class: "form-control form-control-lg" %>
+              </div>
+            </div>
+
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :description, class: "form-label" %><br />
+                <%= f.text_area :description, autofocus: true, class: "form-control form-control-lg" %>
+              </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <div class="field">
+                    <%= f.label :price, class: "form-label" %><br />
+                    <%= f.number_field :price, class: "form-control form-control-lg" %>
+                </div>
+            </div>
+
+
+            <div class="form-outline mb-4">
+                <div class="field">
+                    <%= f.label :author, class: "form-label" %><br />
+                    <%= f.text_field :author, class: "form-control form-control-lg" %>
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <div class="field">
+                    <%= f.label :category, class: "form-label" %><br />
+                    <%= f.text_field :category, class: "form-control form-control-lg" %>
+                </div>
+            </div>
+
+
+            <div class="field">
+              <%= f.label :files %>
+              <%= f.file_field :files, multiple: true %>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="actions">
+              <%= f.submit "Submit",class: "btn btn-secondary btn-lg btn-block"  %>
+            </div>
+
+            <hr class="my-4">
+              <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Shop Homepage - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+       
+        <!-- Header-->
+        <div id="main">
+          <img class="d-block w-100" src="/assets/bg-slider2.jpg" alt="First slide">				    
+        </div>
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-black">
+              <h1 class="display-4 fw-bolder">Our Products</h1>
+            </div>
+        </div>
+        <div class="row" style="padding:5%;">
+          <% @books.each do |book|%>
+            <div class="col-sm-3" >
+              <div class="card" style="text-align: center; margin: 15px;">
+                <div class="card-body">
+                <% book.files.each do |file| %>
+                  <%= image_tag file, :width=>"200px", :height=>"200px" %>
+              <% end %>
+                  <h5 class="card-title"><%= book.name%></h5>
+                  <p class="card-text">Author :<%= book.author %></p>
+                  <p class="card-text">Price :<%= book.price %></p>
+                  <%= button_to 'Add to Cart',line_items_path(:store_id=>book.id),class: "btn btn-secondary"%>
+                </div>
+              </div>
+            </div><br>
+          <% end %>
+        </div>
+<br>
+<br>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

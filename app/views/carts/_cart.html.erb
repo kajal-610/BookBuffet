@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+	</script>
+<br/>
+<br/>
+	<div class="container vh-100">
+		<h1 style="text-align:center;color:grey;">
+			<% unless cart.line_items.empty? %>
+            Your Cart
+		</h1>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">Quantity</th>
+					<th scope="col">Name</th>
+					<th scope="col">Price</th>
+				</tr>
+			</thead>
+			<tbody>
+                <%= render(cart.line_items) %>
+                <tr>
+                <td colspan="2">Total</td>
+                <td class="total_cell"><%= number_to_currency(cart.total_price)  %></td>
+	            </tr>
+			</tbody>
+		</table>
+        <% session[:amount] = cart.total_price %>
+        <%= button_to 'Empty Cart', cart, :method => :delete, :confirm => 'Are you sure?', class: "btn btn-secondary btn-sm btn-block;"%>
+    
+    <br/>
+		<%= link_to "Continue Shopping",:controller=>"gallery",:action=>"index" %> | 
+		<% if user_signed_in? %>
+		<%= link_to "Checkout", gallery_checkout_path, class:"link-secondary" %>
+		<% else %>
+		<%= link_to "login", new_user_session_path, class:"link-secondary" %>
+		<% end %>
+
+    	<% end %>
+	</div>
+

@@ -1,0 +1,45 @@
+<section class="vh-100" style="background-color: lightgray;">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.hidden_field :reset_password_token %>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <h3 class="mb-5">Change your password</h3>
+
+            <div class="form-outline mb-4">
+               <div class="field">
+                  <%= f.label :password, "New password",class: "form-label" %><br />
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                  <% end %>
+                  <%= f.password_field :password, autofocus: true, autocomplete: "new-password",class: "form-control" %>
+               </div>
+            </div>
+
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :password_confirmation, "Confirm new password",class: "form-label" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Change my password",class: "btn btn-secondary btn-lg btn-block" %>
+            </div>
+          <%= render "devise/shared/links" %>
+            <hr class="my-4">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</section>
+
+

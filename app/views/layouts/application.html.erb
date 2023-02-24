@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookBuffet</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">My App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/index">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/gallery/index">Gallery</a>
+      </li>
+     
+      
+    </ul>
+     <p class="navbar-text float-right">
+      
+        <%= form_for(:search,:url=>"/gallery/search") do |f| %>
+
+        Search <input type="text" name="search">
+        <input type="submit" value="Go">
+        <% end %>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <% if session[:admin] %>
+        <%= link_to "Admin Logout", "/admin/logout" ,class: "navbar-link" %>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <% else %>
+        <%= link_to "Admin Login", "/admin/login",class: "navbar-link" %>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <% end %>
+      <% if user_signed_in? %>
+        Logged in as &nbsp;<strong><%= current_user.email %></strong>.&nbsp; | &nbsp;
+        <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-link"  %>&nbsp;&nbsp;
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, class: "navbar-link"  %> |&nbsp;&nbsp;
+        <%= link_to "Login", new_user_session_path, class: "navbar-link"  %>
+      <% end %>
+    </p>
+  </div>
+</nav>
+
+  <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+    <%= yield %>
+        <div class="navFooterLine navFooterLinkLine navFooterDescLine">
+            <footer class="py-5 bg-dark">
+                <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+            </footer>
+     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      
+        <script src="js/scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<section style="background-color: lightgray;">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="container py-5 h-90">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <h2 class ="mb-5" >Edit <%= resource_name.to_s.humanize %></h2>
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :email, class: "form-label" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control form-conytrol-lg" %>
+              </div>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+              
+              <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :password, class: "form-label" %> <i>(leave blank if you don't want to change it)</i><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-lg" %>
+                <% if @minimum_password_length %>
+                    <br />
+                <em><%= @minimum_password_length %> characters minimum</em>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :password_confirmation ,class: "form-label" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg" %>
+              </div>
+            </div>
+
+            <div class="form-outline mb-4">
+              <div class="field">
+                <%= f.label :current_password ,class: "form-label" %> <i>(we need your current password to confirm your changes)</i><br />
+                <%= f.password_field :current_password, autocomplete: "current-password" ,class: "form-control form-control-lg" %>
+              </div>
+            </div>
+            <div class="actions">
+              <%= f.submit "Update",class: "btn btn-secondary btn-lg btn-block" %>
+            </div>
+            <%= render "devise/shared/links" %>
+            <h3>Cancel my account</h3>
+
+            <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary btn-lg btn-block" %>
+             <%= link_to "Back", :back %>
+            <hr class="my-4">
+          
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
