@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     # before_action :authenticate_user!
-        private
+    private
     def current_cart
       Cart.find(session[:cart_id])
       rescue ActiveRecord::RecordNotFound
