@@ -26,7 +26,6 @@ class GalleryController < ApplicationController
               :password =>'password',
               :test => 'true' )
               response = gateway.authorize(amount_to_charge , credit_card) 
-             puts response.inspect
              if response.success?
                 gateway.capture(amount_to_charge, response.authorization)
                 UserNotifierMailer.purchase_complete(current_user,current_cart).deliver 
