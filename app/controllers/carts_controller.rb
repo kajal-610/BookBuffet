@@ -1,12 +1,10 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: %i[  edit update destroy ]
 
-  
   def index
     @carts = Cart.all
   end
 
-  
   def show
     begin
       @cart = Cart.find(params[:id])
@@ -21,7 +19,6 @@ class CartsController < ApplicationController
     end
   end
 
-  
   def new
     @cart = Cart.new
   end
