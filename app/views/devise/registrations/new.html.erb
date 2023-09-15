@@ -6,16 +6,13 @@
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
-
             <h3 class="mb-5">Sign in</h3>
-
             <div class="form-outline mb-4">
               <div class="field">
                 <%= f.label :email, class: "form-label" %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
               </div>
             </div>
-
             <div class="form-outline mb-4">
               <div class="field">
                 <%= f.label :password, class: "form-label" %>
@@ -25,22 +22,18 @@
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-lg" %>
               </div>
             </div>
-
             <div class="form-outline mb-4">
               <div class="field">
                   <%= f.label :password_confirmation, class: "form-label" %><br />
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg" %>
               </div>
             </div>
-
             <div class="actions">
                 <%= f.submit "Sign up",class: "btn btn-secondary btn-lg btn-block"  %>
             </div>
             <%= render "devise/shared/links" %>
             <hr class="my-4">
-
           <% end %>
-
           </div>
         </div>
       </div>

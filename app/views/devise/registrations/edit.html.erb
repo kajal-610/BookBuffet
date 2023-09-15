@@ -1,7 +1,6 @@
 <section style="background-color: lightgray;">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="container py-5 h-90">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -17,7 +16,6 @@
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
-              
               <div class="form-outline mb-4">
               <div class="field">
                 <%= f.label :password, class: "form-label" %> <i>(leave blank if you don't want to change it)</i><br />
@@ -28,14 +26,12 @@
                 <% end %>
               </div>
             </div>
-
             <div class="form-outline mb-4">
               <div class="field">
                 <%= f.label :password_confirmation ,class: "form-label" %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg" %>
               </div>
             </div>
-
             <div class="form-outline mb-4">
               <div class="field">
                 <%= f.label :current_password ,class: "form-label" %> <i>(we need your current password to confirm your changes)</i><br />
@@ -47,13 +43,10 @@
             </div>
             <%= render "devise/shared/links" %>
             <h3>Cancel my account</h3>
-
             <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary btn-lg btn-block" %>
              <%= link_to "Back", :back %>
             <hr class="my-4">
-          
             <% end %>
-
           </div>
         </div>
       </div>

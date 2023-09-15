@@ -6,6 +6,7 @@ class StoresController < ApplicationController
     @stores = Store.all
   end
 
+ 
   def show
   end
   
@@ -40,9 +41,9 @@ class StoresController < ApplicationController
       end
     end
   end
+  
   def destroy
     @store.destroy
-
     respond_to do |format|
       format.html { redirect_to stores_url, notice: "Store was successfully destroyed." }
       format.json { head :no_content }
@@ -53,9 +54,11 @@ class StoresController < ApplicationController
     def set_store
       @store = Store.find(params[:id])
     end
+  
     def store_params
       params.require(:store).permit(:name, :category, :description, :price, :author, files: [])
     end
+  
     def admin_logged_in?
       if session[:admin].nil?
         flash[:notice] = "You need to do admin login to continue!"

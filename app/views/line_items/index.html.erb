@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Line Items</h1>
-
 <table>
   <thead>
     <tr>
@@ -11,7 +9,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @line_items.each do |line_item| %>
       <tr>
@@ -25,7 +22,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Line Item', new_line_item_path %>

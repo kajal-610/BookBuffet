@@ -10,13 +10,11 @@ class AdminController < ApplicationController
         end
       end
     end
-  
+    
     def logout
       session.delete(:admin)
       flash[:notice] = "You are logged out"
       redirect_to :action=>"login"
-  
-    end
-        
+    end   
 end
   

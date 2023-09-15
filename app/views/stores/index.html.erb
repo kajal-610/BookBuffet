@@ -1,38 +1,34 @@
 <div class="container vh-300" >
-		<h1 style="text-align:center;color:grey;">
-			Stores
+    <h1 style="text-align:center;color:grey;">
+	Stores
     </h1>
     <p id="notice"><%= notice %></p>
-    <%# <%= link_to 'logout', admin_logout_path %> 
-		<!-- Bootstrap table and table-bordered classes -->
-    
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th scope="col">Name</th>
-					<th scope="col">Category</th>
-					<th scope="col">Color</th>
-					<th scope="col">Price</th>
-					<th scope="col">Description</th>
-				</tr>
-			</thead>
-        <tbody>
-          <% @stores.each do |store| %>
-            <tr>
-              <td><%= store.name %></td>
-              <td><%= store.category %></td>
-              <td><%= store.author %></td>
-              <td><%= store.description %></td>
-              <td><%= store.price %></td>
-              <td><%= link_to 'Show', store, class:"btn btn-secondary btn-sm btn-block;", style: "color: white" %></td>
-              <td><%= link_to 'Edit', edit_store_path(store), class:"btn btn-secondary btn-sm btn-block;", style: "color: white"%></td>
-              <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary btn-sm btn-block;", style: "color: white" %></td>
-            </tr>
-          <% end %>
-        </tbody>
-		</table>
+    <table class="table table-bordered">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Category</th>
+				<th scope="col">Color</th>
+				<th scope="col">Price</th>
+				<th scope="col">Description</th>
+			</tr>
+		</thead>
+		<tbody>
+		  <% @stores.each do |store| %>
+		    <tr>
+		      <td><%= store.name %></td>
+		      <td><%= store.category %></td>
+		      <td><%= store.author %></td>
+		      <td><%= store.description %></td>
+		      <td><%= store.price %></td>
+		      <td><%= link_to 'Show', store, class:"btn btn-secondary btn-sm btn-block;", style: "color: white" %></td>
+		      <td><%= link_to 'Edit', edit_store_path(store), class:"btn btn-secondary btn-sm btn-block;", style: "color: white"%></td>
+		      <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary btn-sm btn-block;", style: "color: white" %></td>
+		    </tr>
+		  <% end %>
+		</tbody>
+    </table>
     <%= link_to 'New Store', new_store_path, class:"btn btn-secondary btn-sm btn-block;", style: "color: white; align: center"%>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
