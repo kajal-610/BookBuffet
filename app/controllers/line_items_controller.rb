@@ -12,7 +12,6 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.new
   end
 
-
   def edit
   end
 

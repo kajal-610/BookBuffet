@@ -4,7 +4,6 @@ class AdminController < ApplicationController
         if params[:username] == "admin123" && params[:password] =="nimda"
           session[:admin] = "admin"
           redirect_to stores_url
-        
         else
           flash[:notice] = "Invalid Credentials"
           render :action=>:login

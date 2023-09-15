@@ -6,7 +6,6 @@ class StoresController < ApplicationController
     @stores = Store.all
   end
 
- 
   def show
   end
   
@@ -30,7 +29,6 @@ class StoresController < ApplicationController
     end
   end
 
-  
   def update
     respond_to do |format|
       if @store.update(store_params)

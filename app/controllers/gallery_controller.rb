@@ -3,13 +3,11 @@ class GalleryController < ApplicationController
     @books=Store.all
   end
 
-  
   def search
     keyword = '%' + params[:search] + '%'
     @books = Store.find_by_sql ["Select * from stores WHERE name like ? or author like ? or category like ? or description like ?",keyword,keyword,keyword,keyword]
   end
   
-
   def checkout
     amount_to_charge = session[:amount].to_i
      if request.post?
